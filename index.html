@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+ 
+<html lang="es">
+ 
+<head>
+<title>MIMIFICADOR</title>
+<meta charset="utf-8" />
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+<script src='http//vws.responsivevoice.com/v/e?key=Sogdwtkr'></script>
+<script>
+	String.prototype.replaceAll = function(search, replacement) {
+		var target = this;
+		return target.replace(new RegExp(search, 'g'), replacement);
+	};
+
+	function mimifica(){
+		var textoOrigen=document.getElementById("texto").value;
+		var textoProcesado;
+		
+		textoProcesado=textoOrigen.replaceAll("a","i");
+		textoProcesado=textoProcesado.replaceAll("e","i");
+		textoProcesado=textoProcesado.replaceAll("o","i");
+		textoProcesado=textoProcesado.replaceAll("u","i");
+		
+		textoProcesado=textoProcesado.replaceAll("A","I");
+		textoProcesado=textoProcesado.replaceAll("E","I");
+		textoProcesado=textoProcesado.replaceAll("O","I");
+		textoProcesado=textoProcesado.replaceAll("U","I");
+		
+		textoProcesado=textoProcesado.replaceAll("á","í");
+		textoProcesado=textoProcesado.replaceAll("é","í");
+		textoProcesado=textoProcesado.replaceAll("ó","í");
+		textoProcesado=textoProcesado.replaceAll("ú","í");
+		
+		textoProcesado=textoProcesado.replaceAll("Á","Í");
+		textoProcesado=textoProcesado.replaceAll("É","Í");
+		textoProcesado=textoProcesado.replaceAll("Ó","Í");
+		textoProcesado=textoProcesado.replaceAll("Ú","Í");
+		
+		
+		document.getElementById("texto").value=textoProcesado+" mimi mimi mii...";
+		responsiveVoice.speak(document.getElementById("texto").value, "Spanish Female",{pitch: 2});
+		//responsiveVoice.speak(" mimi mimi mii...", "Spanish Female");
+		var aux = document.createElement("input");
+		aux.setAttribute("value", textoProcesado);
+	   document.body.appendChild(aux);
+	   aux.select();
+	   document.execCommand("copy");
+	   document.body.removeChild(aux);
+		
+	
+	}
+	
+function copiarAlPortapapeles(id_elemento) {
+  var aux = document.createElement("input");
+  aux.setAttribute("value", document.getElementById(id_elemento).innerHTML);
+  document.body.appendChild(aux);
+  aux.select();
+  document.execCommand("copy");
+  document.body.removeChild(aux);
+}
+
+</script>
+</head>
+ 
+<body>
+    <header>
+       <h1>MIMIFICADOR</h1>
+	   <p><img src="cebfd3e7-86d4-48e7-9a05-80044ac34973.png" style="width: 450px;"></p>
+       <p>Pega un texto y obtenlo mimificado quedará copiado en el portapapeles</p>
+    </header>
+    <section>
+       <article>
+           <h2><h2>
+           <textarea rows="4" cols="50" id="texto" placeholder="Pegue aquí su texto"></textarea>
+		   <input type="button" value="mimificar" onclick="javascript:mimifica();" />
+		   
+       </article>
+    </section>
+	<section>
+       <article>
+		 <p id="resultado">
+		 &nbsp;
+		 </p>
+		</article>
+    </section>
+    <footer>
+        Creado por @Gorgues en 2016
+    </footer>
+</body>
+</html>
